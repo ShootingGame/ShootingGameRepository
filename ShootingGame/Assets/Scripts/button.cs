@@ -41,9 +41,15 @@ public class button : MonoBehaviour {
 		if(managerObj.isPause){
 			managerObj.isPause = false;
 			pauseMark.GetComponent<Text>().color = Color.white;
+
+			//TODO これだけでアニメーションを含め、全てのゲームが停止するので、各処理で実装した停止処理は必要なくなる
+			Time.timeScale = 1;
 		}else{
 			managerObj.isPause = true;
 			pauseMark.GetComponent<Text>().color = Color.red;
+
+			//TODO これだけでアニメーションを含め、全てのゲームが停止するので、各処理で実装した停止処理は必要なくなる
+			Time.timeScale = 0;
 		}
 	}
 

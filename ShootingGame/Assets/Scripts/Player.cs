@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
 		}
 
 	}
-
+	
 	void Update ()
 	{
 		if (managerObj.IsGamePause () != true) {
@@ -133,6 +133,9 @@ public class Player : MonoBehaviour
 			// レイヤー名がBullet(Enemy)またはEnemy,Boss1の場合は damage
 			if( layerName == "Bullet(Enemy)" || layerName == "Enemy" || layerName == "Boss1")
 			{
+
+				spaceship.GetAnimator().SetTrigger("Damage");
+
 				playerlife.damagePlayerHp();
 				Debug.Log ("Damage(Player.cs) == >" + playerlife.getPlayerHp());
 				

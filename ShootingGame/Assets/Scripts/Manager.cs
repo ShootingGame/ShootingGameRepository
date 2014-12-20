@@ -89,10 +89,20 @@ public class Manager : MonoBehaviour
 	public bool isEndByNoBtn = false;
 	bool isContinuGui = false;
 
-	//TODO コンティニュー
+	//TODO for debug デバッグフラグ　リリースの際はfalseにすること。
+	bool isDebug = true;
 
 	void Start ()
 	{
+		//TODO ======================== for debug
+		if (isDebug) {
+			if (playerLifeDefault == 0) {
+					playerLifeDefault = 20;
+			}
+		}
+		//TODO ======================== for debug
+
+
 		if (p1 == true) {
 			lastStageName = "Stage12";
 		}
@@ -101,12 +111,6 @@ public class Manager : MonoBehaviour
 		}
 		if (p3 == true) {
 			lastStageName = "Stage06";
-		}
-
-		//TODO for DEBUG
-		lastStageName = "Stage_Test";
-		if (playerLifeDefault == 0) {
-			playerLifeDefault = 20;
 		}
 
 		//コンティニュ用オブジェクトセットアップ処理
@@ -131,9 +135,22 @@ public class Manager : MonoBehaviour
 		GameStart ();
 
 	}
-
+	
 	void Update ()
 	{
+		//TODO ======================== for debug
+		if (isDebug) {
+			//ゲーム速度を下げる
+			if (Input.GetKeyDown (KeyCode.Alpha1)){
+				Time.timeScale = 0.3f;	
+			}
+			//ゲーム速度を戻す
+			if (Input.GetKeyDown (KeyCode.Alpha2)){
+				Time.timeScale = 1;	
+			}
+		}
+		//TODO ======================== for debug
+
 		//コンティニューカウントダウン処理
 		if (isContinuGui) {
 			continueCount++;
