@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6e92f5d2ec1064868bafff69666995f3
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - simpleShoot: {fileID: 8300000, guid: 2ccb6c5fe358b47cc9e2d0fffa40af52, type: 3}
+  - soundExplosion: {fileID: 8300000, guid: 09502e2e7d896d847a715d47209f1d18, type: 3}
+  - soundBomb: {fileID: 8300000, guid: 9feb780fe547ce94f98cdb59d1ecacfa, type: 3}
+  - soundBoom: {fileID: 8300000, guid: 40a6f93322a4e9f43a3e978c65a344ba, type: 3}
+  - soundChase: {fileID: 8300000, guid: 0eb06a880f53f7f49a0ff0a0e24bfbe3, type: 3}
+  - soundShoot: {fileID: 8300000, guid: 09502e2e7d896d847a715d47209f1d18, type: 3}
+  - soundSht1: {fileID: 8300000, guid: c8edb40cfd923bf43a5b1ffe5dca17cb, type: 3}
+  - soundSht2: {fileID: 8300000, guid: 4a303473080fb4945947152b6ed5d605, type: 3}
+  - soundBGM1: {instanceID: 0}
+  - soundBGM2: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
