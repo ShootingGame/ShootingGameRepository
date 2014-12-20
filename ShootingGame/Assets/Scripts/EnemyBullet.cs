@@ -72,7 +72,7 @@ public class EnemyBullet : MonoBehaviour
 				//まっすぐ飛ぶ
 				rigidbody2D.velocity = transform.up.normalized * speed;
 				// lifeTime秒後に削除
-				Destroy (gameObject, lifeTime);
+				//Destroy (gameObject, lifeTime);
 			}else{
 				//Debug.Log("bullet stop");
 				transform.position = new Vector3(pauseX, pauseY, pauseZ);
