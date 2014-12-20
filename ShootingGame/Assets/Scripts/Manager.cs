@@ -227,6 +227,7 @@ public class Manager : MonoBehaviour
 		} else {
 			Instantiate (player, player.transform.position, player.transform.rotation);
 			selectedPlayer = player;
+			playerIcon.sprite = p1Icon;
 		}
 
 		//player icon
