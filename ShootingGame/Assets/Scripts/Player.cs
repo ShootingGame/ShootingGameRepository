@@ -44,7 +44,6 @@ public class Player : MonoBehaviour
 
 	void Update ()
 	{
-
 		if (managerObj.IsGamePause () != true) {
 			// 右・左
 			float x = Input.GetAxisRaw ("Horizontal");
@@ -64,7 +63,9 @@ public class Player : MonoBehaviour
 	{
 		if (managerObj.IsGamePause () != true) {
 			// スペースを押したかを判定
-			if (Input.GetKey ("space")) {
+
+			if(managerObj.isTouch){
+			//if (Input.GetKey ("space")) {
 
 				switch (argShotType)
 				{

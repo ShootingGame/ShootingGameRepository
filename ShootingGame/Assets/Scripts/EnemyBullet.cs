@@ -33,6 +33,9 @@ public class EnemyBullet : MonoBehaviour
 
 	bool isEnterDestroyArea = false;
 
+	//タイマー
+	float timer;
+
 	void Update () {
 
 		//DestroyArea 外の場合は削除
@@ -40,11 +43,18 @@ public class EnemyBullet : MonoBehaviour
 			Destroy (gameObject);
 		}
 
-		//TODO ================ 停止処理
+		//lifeTimeが経過したら削除
+		if (isEnemyPause != true) {
+			timer += Time.deltaTime;
+		}
+		if(timer > lifeTime){
+			Destroy (gameObject);
+		}
+
+		//エネミーの停止
 		if (managerObj.IsGamePause () != true) {
 			isEnemyPause = false;
 		} else {
-			//敵を止める場合
 			if (isEnemyPause == false) {
 				isEnemyPause = true;
 				pauseX = transform.position.x;
@@ -52,18 +62,16 @@ public class EnemyBullet : MonoBehaviour
 				pauseZ = transform.position.z;
 			}
 			
-			//エネミーが止まっている場合
+			//エネミーが止まった位置に移動し続ける
 			if (isEnemyPause == true) {
 				transform.position = new Vector3(pauseX, pauseY, pauseZ);
 			}
 		}
 		//TODO ================
-
 	}
-
+	
 	IEnumerator Start ()
 	{
-
 		managerObj = FindObjectOfType<Manager> ();
 
 		while (true) {

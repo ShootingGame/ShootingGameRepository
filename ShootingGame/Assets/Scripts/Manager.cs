@@ -14,19 +14,37 @@ public class Manager : MonoBehaviour
 	public Sprite p2Icon;
 	public Sprite p3Icon;
 
-	public GameObject selectedPlayer;
-
-	public static int selectedPlayerNo;
-
+	//========== 各種フラグ ==========
 	//ゲーム停止フラグ
+	[System.NonSerialized]
 	public bool isPause;
+	
+	//エネミー停止フラグ
+	[System.NonSerialized]
+	public bool isEnemyPause = false;
+	
+	//ボム発射フラグ
+	[System.NonSerialized]
+	public bool isBomb = false;
+	
+	//スクリーンタッチ検知フラグ
+	[System.NonSerialized]
+	public bool isTouch = false;
 
-	//エネミーフラグ
-    public bool isEnemyPause = false;
+	//ステージ遷移フラグ
+	[System.NonSerialized]
+	public static bool isNextStage;
 
-	//TODO public??????
+	//ゲームリトライフラグ
+	[System.NonSerialized]
 	public bool retry = false;
 
+	//========== その他の public 変数 ==========
+	[HideInInspector]
+	public GameObject selectedPlayer;
+	
+	public static int selectedPlayerNo;
+		
 	public static int lastScore;
 
 	//選択した機体
@@ -40,11 +58,6 @@ public class Manager : MonoBehaviour
 	//TODO from start stage
 	public static int gameMode;
 	public static int playerLifeDefault;
-
-	//ステージ遷移フラグ
-	public static bool isNextStage;
-
-	public bool isBomb = false;
 
 	//========== メンバ変数 ==========
 	GameObject mainGui;
@@ -119,6 +132,19 @@ public class Manager : MonoBehaviour
 
 	}
 
+	void Update ()
+	{
+		//コンティニューカウントダウン処理
+		if (isContinuGui) {
+			continueCount++;
+			if(isEndByNoBtn){
+				continueCount = 300;
+				isEndByNoBtn = false;
+			}
+			countinueCountDown(continueCount);
+		}
+	}
+
 	//コンティニュー時のカウント用のオブジェクトを設定
 	public void setContinueCountObj(){
 		count1 = GameObject.Find ("c1");
@@ -132,6 +158,7 @@ public class Manager : MonoBehaviour
 		buttonn = GameObject.Find ("ButtonN");
 		initContinueCount ();
 	}
+	
 	//コンティニュー時のカウント用のオブジェクトを初期化
 	public void initContinueCount(){
 		count1.SetActive (false);
@@ -140,19 +167,6 @@ public class Manager : MonoBehaviour
 		count4.SetActive (false);
 		count5.SetActive (false);
 		gameover.SetActive (false);
-	}
-
-	//コンティニューカウントダウン処理
-	void Update ()
-	{
-		if (isContinuGui) {
-			continueCount++;
-			if(isEndByNoBtn){
-				continueCount = 300;
-				isEndByNoBtn = false;
-			}
-			countinueCountDown(continueCount);
-		}
 	}
 
 	//コンティニューカウントダウン処理
@@ -229,9 +243,6 @@ public class Manager : MonoBehaviour
 			selectedPlayer = player;
 			playerIcon.sprite = p1Icon;
 		}
-
-		//player icon
-
 	}
 
 	//ゲーム終了処理
@@ -260,7 +271,7 @@ public class Manager : MonoBehaviour
 		clearGui.SetActive(true);
 	}
 
-	//ポーズフラグ取得処理
+	//ステージクリア時の GUI を表示
 	public bool IsGamePause(){
 		return this.isPause;
 	}
@@ -332,7 +343,18 @@ public class Manager : MonoBehaviour
 								Application.LoadLevel ("Stage12");
 						}
 				}
-
+		} else{
+			//プレイヤーが選択されていない場合
 		}
+	}
+
+	//スクリーンタッチを検出
+	public void screenTouch(){
+		isTouch = true;
+	}
+
+	//スクリーンタッチが離れたのを検出
+	public void screenTouchOut(){
+		isTouch = false;
 	}
 }

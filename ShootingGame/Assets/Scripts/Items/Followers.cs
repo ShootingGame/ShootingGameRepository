@@ -77,23 +77,23 @@ public class Followers : MonoBehaviour {
 			for(int i=0; i<followersNum; i++) {
 				if (_followers[i] != null && player != null) {
 					if (managerObj.IsGamePause () != true) {
-					if (Input.GetKey ("space")) {
-						if (_followers[i] != null && player != null) {
-							//Debug.Log("This is shoot from options");
-							if(shotType.getShotType() == 1){
-								Instantiate (bullet, _followers[i].transform.position, _followers[i].transform.rotation);
-							}else if(shotType.getShotType() == 2){
-								Instantiate (bullet2, _followers[i].transform.position, _followers[i].transform.rotation);
-							}else if(shotType.getShotType() == 3){
-								Instantiate (bullet3, _followers[i].transform.position, _followers[i].transform.rotation);
-							}else if(shotType.getShotType() == 4){
-								Instantiate (bullet4, _followers[i].transform.position, _followers[i].transform.rotation);
-							}
+						if (managerObj.isTouch) {
+							if (_followers[i] != null && player != null) {
+								//Debug.Log("This is shoot from options");
+								if(shotType.getShotType() == 1){
+									Instantiate (bullet, _followers[i].transform.position, _followers[i].transform.rotation);
+								}else if(shotType.getShotType() == 2){
+									Instantiate (bullet2, _followers[i].transform.position, _followers[i].transform.rotation);
+								}else if(shotType.getShotType() == 3){
+									Instantiate (bullet3, _followers[i].transform.position, _followers[i].transform.rotation);
+								}else if(shotType.getShotType() == 4){
+									Instantiate (bullet4, _followers[i].transform.position, _followers[i].transform.rotation);
+								}
 
+							}
 						}
 					}
 				}
-			}
 			}
 			yield return new WaitForSeconds (shotType.getPlayerShotDelay());	
 		}
