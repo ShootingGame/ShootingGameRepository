@@ -699,12 +699,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7c6d337b6631344b85755767737372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1000
-  point: 100
-  pointMidle: 700
-  pointBoss: 1000
+  hp: 1400
   shotFlag: 1
+  isLastBoss: 0
+  isSpecialEnemy: 1
   Item: {fileID: 0}
+  pauseX: 0
+  pauseY: 0
+  pauseZ: 0
   WaitShot: 0
   Reverse: 0
   shotflame: 30
@@ -715,6 +717,7 @@ MonoBehaviour:
   isMidleBoss: 1
   BossPatern: []
   setcount: 60
+  isEnemyPause2: 0
 --- !u!114 &11400032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -757,7 +760,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d1a4a5111ecdd4a419a40ccfe981a035, type: 3}
-  m_Color: {r: .647058845, g: .647058845, b: .647058845, a: 1}
+  m_Color: {r: .522058845, g: .522058845, b: .522058845, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

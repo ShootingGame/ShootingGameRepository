@@ -4805,9 +4805,9 @@ MonoBehaviour:
   player: {fileID: 100000, guid: 97d60b0d677c85445a440a10f1f50a0f, type: 2}
   player2: {fileID: 100000, guid: 2368a6a4cf0e7b8459045a2b005ba843, type: 2}
   player3: {fileID: 100000, guid: 573325a2d7ab2ea4f95d41dcbec3c11b, type: 2}
-  p1Icon: {fileID: 0}
-  p2Icon: {fileID: 0}
-  p3Icon: {fileID: 0}
+  p1Icon: {fileID: 21300000, guid: 6ee8ff79235021047bccb30d6ba036c5, type: 3}
+  p2Icon: {fileID: 21300000, guid: 280616e05ab1f854dae74e8e73fd1c7e, type: 3}
+  p3Icon: {fileID: 21300000, guid: b6dbb9971d20312469b7573bd5528b80, type: 3}
   selectedPlayer: {fileID: 0}
   isPause: 0
   isEnemyPause: 0
