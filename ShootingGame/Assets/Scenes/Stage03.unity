@@ -320,7 +320,7 @@ Transform:
   - {fileID: 101178300}
   - {fileID: 1918987017}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &123086830
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,7 +575,7 @@ Transform:
   - {fileID: 1679470793}
   - {fileID: 1421779250}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!61 &228833006
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1136,6 +1136,92 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1930991076}
   m_GameObject: {fileID: 370011596}
+--- !u!1 &381045971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 381045973}
+  - 82: {fileID: 381045972}
+  m_Layer: 0
+  m_Name: bgm_1221STG_Stage03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &381045972
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 381045971}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: ae3ff286fd7ae4c96b31942211a0219f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: .5
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!4 &381045973
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 381045971}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
 --- !u!1 &384714292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,7 +1544,7 @@ Transform:
   - {fileID: 1692397550}
   - {fileID: 694672826}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!61 &525172706
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1892,7 +1978,7 @@ Transform:
   - {fileID: 204831650}
   - {fileID: 1909840189}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!61 &652881734
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2300,7 +2386,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 568dc9537b95b48dcb5810522e580a4c, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 568dc9537b95b48dcb5810522e580a4c, type: 2}
       propertyPath: hp
@@ -2326,7 +2412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &806047811
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2811,7 +2897,7 @@ Transform:
   - {fileID: 991210965}
   - {fileID: 1972810227}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &882917735
 GameObject:
   m_ObjectHideFlags: 0
@@ -5250,7 +5336,7 @@ Transform:
   - {fileID: 1491682879}
   - {fileID: 917130987}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &1659760347
 GameObject:
   m_ObjectHideFlags: 0
@@ -5864,7 +5950,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1873814450
 GameObject:
   m_ObjectHideFlags: 0
@@ -6180,7 +6266,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 47fe8592b20474cb5b51ed7a32c0f19a, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47fe8592b20474cb5b51ed7a32c0f19a, type: 2}
