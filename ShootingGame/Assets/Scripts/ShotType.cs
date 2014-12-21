@@ -21,7 +21,12 @@ public class ShotType: MonoBehaviour {
 	public int getShotType(){
 		return shotType;
 	}
-	
+
+	public void setDefaultShot(){
+		shotType = 1;
+		playerShotDelay = 0.02f;
+	}
+
 	public void setShotType_1(){
 		shotType = 1;
 	}

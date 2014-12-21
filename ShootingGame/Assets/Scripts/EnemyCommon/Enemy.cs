@@ -71,7 +71,12 @@ public class Enemy : MonoBehaviour
 		managerObj = FindObjectOfType<Manager> ();
 
 		//プレイヤーを設定 || Player -> null, Player(Clone) -> OK
-		playerObj = GameObject.Find (managerObj.selectedPlayer.name + "(Clone)");
+		if (managerObj.selectedPlayer != null) {
+			playerObj = GameObject.Find (managerObj.selectedPlayer.name + "(Clone)");		
+		} else {
+			playerObj = GameObject.Find ("Player(Clone)");
+		}
+		//playerObj = GameObject.Find (managerObj.selectedPlayer.name + "(Clone)");
 		//managerObj.selectedPlayer.name + "(Clone)"
 		// 倒した時のポイントを設定
 		if( isLastBoss != false){
@@ -173,8 +178,8 @@ public class Enemy : MonoBehaviour
                     //スコアGUIの呼び出し
                     FindObjectOfType<Score>().setupScoreGui();
 
-                    //ゲームを停止
-                    FindObjectOfType<Manager> ().isPause = true; //ゲーム停止する場合
+					//画面スピードを落とす
+					Time.timeScale = 0.7f;
                 }
 				
 			}else{

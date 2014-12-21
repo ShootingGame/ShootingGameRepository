@@ -623,7 +623,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Radius: .800000012
   m_Center: {x: 0, y: 0}
 --- !u!58 &5800002
@@ -634,7 +634,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 100022}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Radius: .800000012
   m_Center: {x: 0, y: 0}
 --- !u!58 &5800004
@@ -645,7 +645,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 100034}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Radius: .800000012
   m_Center: {x: 0, y: 0}
 --- !u!95 &9500000
@@ -722,14 +722,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b2cb0ed09d0c3b47a629419fddfe3ec, type: 3}
+  m_Script: {fileID: 11500000, guid: a77c62dd535ac4aeab4dbf3a374b8f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 500
-  point: 100
-  count: 0
-  delta: .300000012
+  hp: 100
   shotFlag: 1
+  isLastBoss: 0
+  isSpecialEnemy: 1
+  Item: {fileID: 0}
+  pauseX: 0
+  pauseY: 0
+  pauseZ: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -924,14 +927,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 100022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b2cb0ed09d0c3b47a629419fddfe3ec, type: 3}
+  m_Script: {fileID: 11500000, guid: a77c62dd535ac4aeab4dbf3a374b8f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1000
-  point: 100
-  count: 0
-  delta: .5
+  hp: 100
   shotFlag: 1
+  isLastBoss: 0
+  isSpecialEnemy: 1
+  Item: {fileID: 0}
+  pauseX: 0
+  pauseY: 0
+  pauseZ: 0
 --- !u!114 &11400034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1054,14 +1060,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 100034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b2cb0ed09d0c3b47a629419fddfe3ec, type: 3}
+  m_Script: {fileID: 11500000, guid: a77c62dd535ac4aeab4dbf3a374b8f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 500
-  point: 100
-  count: 0
-  delta: -.300000012
+  hp: 100
   shotFlag: 1
+  isLastBoss: 0
+  isSpecialEnemy: 1
+  Item: {fileID: 0}
+  pauseX: 0
+  pauseY: 0
+  pauseZ: 0
 --- !u!114 &11400052
 MonoBehaviour:
   m_ObjectHideFlags: 1

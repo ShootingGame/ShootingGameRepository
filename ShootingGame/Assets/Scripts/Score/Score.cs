@@ -39,11 +39,16 @@ public class Score : MonoBehaviour
 	//倒した中ボスの数
 	private int deadMiddleBossNum = 0;
 
+	//GUI表示タイマー
+	float timer;
+	bool isShowGui = false;
+	float showTime = 1;
+
 	void Start ()
 	{
 		Initialize ();
 	}
-	
+
 	void Update ()
 	{
 		// スコアがハイスコアより大きければ
@@ -69,6 +74,15 @@ public class Score : MonoBehaviour
 		//TODO プレイヤーの残機
 		playerHpText.text = playerlife.getPlayerHp().ToString ();
 
+
+		//指定秒後にGUIを表示
+		if (isShowGui) {
+			timer += Time.deltaTime;
+			if(timer > showTime){
+				showScoreGui();
+			}
+		}
+
 	}
 	
 	// ゲーム開始前の状態に戻す
@@ -76,6 +90,7 @@ public class Score : MonoBehaviour
 	{
 		//For test clear high score
 		//PlayerPrefs.SetInt (highScoreKey, 0);
+		Time.timeScale = 1;
 
 		highScoreGUIText = GameObject.Find ("HighScore").GetComponent<Text>();
 
@@ -124,12 +139,18 @@ public class Score : MonoBehaviour
 		Initialize ();
 	}
 
-
+	//クリアGUI表示フラグを切り替え
 	public void setupScoreGui(){
+		isShowGui = true;
+	}
+
+	//クリアGUI表示
+	public void showScoreGui(){
 		Manager managerObj = FindObjectOfType<Manager> ();
 
 		//クリアGUIを表示
 		managerObj.showClearGui();
+
 		Manager.lastScore = getScore();
 		
 		//値を表示
@@ -145,6 +166,10 @@ public class Score : MonoBehaviour
 		}
 
 		Manager.isNextStage = true;
+
+		//ゲームを停止
+		Time.timeScale = 0; //TODO Manager側で停止したい。
+		managerObj.isPause = true;
 	}
 
 	/**

@@ -33,6 +33,9 @@ public class Player : MonoBehaviour
 		superShot = GetComponent<SuperShot> ();
 		audioObj = FindObjectOfType<AudioManager> ();
 
+		//初期の弾の種類を設定
+		shotType.setDefaultShot ();
+
 		while(true){
 			int selectedShotType = shotType.getShotType();
 			Attack(selectedShotType);
