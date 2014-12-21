@@ -582,7 +582,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .00987815857, y: 2.93850851, z: 0}
+  m_LocalPosition: {x: -.48194468, y: .791570783, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400036}
@@ -1173,13 +1173,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .5
-  shotDelay: .0799999982
+  shotDelay: .0299999993
   bullet: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
   bullet4: {fileID: 0}
   super_bullet: {fileID: 0}
-  enemyBullet: {fileID: 100000, guid: d3c26cbadcab60c4c84acdfecce7ab8a, type: 2}
+  enemyBullet: {fileID: 100000, guid: 07b0a69e5bffb2d4e807f3e2e6268d26, type: 2}
   canShot: 1
   explosion: {fileID: 100000, guid: 45c0eeb7d83ec7c4cae0f7d3be325302, type: 2}
 --- !u!114 &11400002
@@ -1193,7 +1193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7c6d337b6631344b85755767737372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 80
+  hp: 70
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
@@ -1272,13 +1272,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .5
-  shotDelay: .0799999982
+  shotDelay: .0299999993
   bullet: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
   bullet4: {fileID: 0}
   super_bullet: {fileID: 0}
-  enemyBullet: {fileID: 100000, guid: d3c26cbadcab60c4c84acdfecce7ab8a, type: 2}
+  enemyBullet: {fileID: 100000, guid: 07b0a69e5bffb2d4e807f3e2e6268d26, type: 2}
   canShot: 1
   explosion: {fileID: 100000, guid: 45c0eeb7d83ec7c4cae0f7d3be325302, type: 2}
 --- !u!114 &11400014
@@ -1292,7 +1292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7c6d337b6631344b85755767737372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 80
+  hp: 70
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
@@ -1418,7 +1418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7c6d337b6631344b85755767737372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 80
+  hp: 70
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .5
-  shotDelay: .0799999982
+  shotDelay: .0299999993
   bullet: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
@@ -1470,7 +1470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .5
-  shotDelay: .0799999982
+  shotDelay: .0299999993
   bullet: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
@@ -1490,7 +1490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7c6d337b6631344b85755767737372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 80
+  hp: 70
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
@@ -1616,7 +1616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7c6d337b6631344b85755767737372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 80
+  hp: 70
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
@@ -1647,7 +1647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .5
-  shotDelay: .0799999982
+  shotDelay: .0299999993
   bullet: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
@@ -1668,7 +1668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .5
-  shotDelay: .0799999982
+  shotDelay: .0299999993
   bullet: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
@@ -1688,7 +1688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7c6d337b6631344b85755767737372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 80
+  hp: 70
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
@@ -1814,7 +1814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7c6d337b6631344b85755767737372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 80
+  hp: 70
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
@@ -1845,13 +1845,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .5
-  shotDelay: .0799999982
+  shotDelay: .0299999993
   bullet: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
   bullet4: {fileID: 0}
   super_bullet: {fileID: 0}
-  enemyBullet: {fileID: 100000, guid: d3c26cbadcab60c4c84acdfecce7ab8a, type: 2}
+  enemyBullet: {fileID: 100000, guid: 81547f312fad7834aa557f4ec969cf1e, type: 2}
   canShot: 1
   explosion: {fileID: 100000, guid: 45c0eeb7d83ec7c4cae0f7d3be325302, type: 2}
 --- !u!114 &11400084
@@ -1866,13 +1866,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .5
-  shotDelay: .0799999982
+  shotDelay: .0299999993
   bullet: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
   bullet4: {fileID: 0}
   super_bullet: {fileID: 0}
-  enemyBullet: {fileID: 100000, guid: d3c26cbadcab60c4c84acdfecce7ab8a, type: 2}
+  enemyBullet: {fileID: 100000, guid: 81547f312fad7834aa557f4ec969cf1e, type: 2}
   canShot: 1
   explosion: {fileID: 100000, guid: 45c0eeb7d83ec7c4cae0f7d3be325302, type: 2}
 --- !u!114 &11400086
@@ -1886,7 +1886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7c6d337b6631344b85755767737372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 80
+  hp: 70
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
@@ -2012,7 +2012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7c6d337b6631344b85755767737372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 80
+  hp: 70
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
@@ -2043,13 +2043,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .5
-  shotDelay: .0799999982
+  shotDelay: .0299999993
   bullet: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
   bullet4: {fileID: 0}
   super_bullet: {fileID: 0}
-  enemyBullet: {fileID: 100000, guid: d3c26cbadcab60c4c84acdfecce7ab8a, type: 2}
+  enemyBullet: {fileID: 100000, guid: 81547f312fad7834aa557f4ec969cf1e, type: 2}
   canShot: 1
   explosion: {fileID: 100000, guid: 45c0eeb7d83ec7c4cae0f7d3be325302, type: 2}
 --- !u!212 &21200000

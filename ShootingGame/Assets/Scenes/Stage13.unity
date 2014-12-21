@@ -1108,7 +1108,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 47fe8592b20474cb5b51ed7a32c0f19a, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47fe8592b20474cb5b51ed7a32c0f19a, type: 2}
@@ -2884,7 +2884,7 @@ MonoBehaviour:
   - {fileID: 100036, guid: 21d1b298469260142ad0c55996c00923, type: 2}
   - {fileID: 100032, guid: 91cf61096ee8eac4496cbe957b906aa8, type: 2}
   - {fileID: 100046, guid: d679b6f8fda58644aba86a5cd09b4783, type: 2}
-  - {fileID: 100044, guid: 864a46e5b9f667c4da43bf1a29e79067, type: 2}
+  - {fileID: 100000, guid: e5fc4f889dbcd554c8085461e6462101, type: 2}
   - {fileID: 100000, guid: d3f714cff81e17a488cdcc9545bcffc7, type: 2}
   - {fileID: 100026, guid: 1af693a7e88414348b21c654764ba4eb, type: 2}
   - {fileID: 100130, guid: c1ab2cea8dd23bf4597a9e51fc9f08ef, type: 2}
