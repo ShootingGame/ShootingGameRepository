@@ -32,7 +32,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 10
   m_Name: caution2
-  m_TagString: Untagged
+  m_TagString: Caution
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +120,7 @@ MonoBehaviour:
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
   bullet4: {fileID: 0}
+  super_bullet: {fileID: 0}
   enemyBullet: {fileID: 0}
   canShot: 0
   explosion: {fileID: 0}
@@ -147,8 +148,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
-  point: 100
   shotFlag: 1
+  isLastBoss: 0
+  isSpecialEnemy: 0
+  Item: {fileID: 0}
+  pauseX: 0
+  pauseY: 0
+  pauseZ: 0
   WaitShot: 0
   Reverse: 0
   shotflame: 30
@@ -156,9 +162,11 @@ MonoBehaviour:
   moveL: 1
   moveR: 0
   shotChangeEnemy: 0
-  BossPatern: {fileID: 0}
-  g: {fileID: 0}
+  isMidleBoss: 0
+  BossPatern:
+  - {fileID: 0}
   setcount: 0
+  isEnemyPause2: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

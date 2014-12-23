@@ -3,7 +3,8 @@ using System.Collections;
 
 public class AudioManager : MonoBehaviour {
 
-	//音声ファイル格納用変数
+	//========== 個別にインスペクターで設定する項目 ==========
+	//音声ファイル格納
 	public AudioClip simpleShoot;
 	public AudioClip soundExplosion;
 	public AudioClip soundBomb;
@@ -12,40 +13,38 @@ public class AudioManager : MonoBehaviour {
 	public AudioClip soundShoot;
 	public AudioClip soundSht1;
 	public AudioClip soundSht2;
-
 	public AudioClip soundBGM1;
 	public AudioClip soundBGM2;
 
-	/*
-	void Update () {
-	}
-	*/
 
+	//ショット音を設定処理
 	public void playShotSound(int argSoundNum){
 		switch(argSoundNum){
 		case 1:
 			audio.PlayOneShot (simpleShoot);
-			/*
-			 * audio.PlayOneShot (soundShoot);
-			audio.PlayOneShot (soundSht1);
+			break;
+		case 2:
 			audio.PlayOneShot (soundSht2);
-			audio.PlayOneShot (soundExplosion);
-			audio.PlayOneShot (soundBomb);
+			break;
+		case 3:
 			audio.PlayOneShot (soundBoom);
+			break;
+		case 4:
 			audio.PlayOneShot (soundChase);
-			audio.PlayOneShot (soundSht1);
-			audio.PlayOneShot (soundSht2);
-			*/
 			break;
 		default:
+			audio.PlayOneShot (simpleShoot);
 			break;
 		}
-		audio.PlayOneShot (soundExplosion);
 	}
 
-	//音楽をストップする
+	//BGMを再生処理
+	public void playBgm(int argBgmNo){
+		//BGM play
+	}
+
+	//音楽をストップ処理
 	public void stopAudio(){
-		Debug.Log ("stop music.Equals..");
 		audio.Stop ();
 	}
 }

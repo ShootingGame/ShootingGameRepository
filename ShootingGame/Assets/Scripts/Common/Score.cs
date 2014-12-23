@@ -3,46 +3,50 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
+	//========== 個別にインスペクターで設定する項目 ==========
 	// スコアを表示するGUIText
 	public Text scoreGUIText;
 	
 	// ハイスコアを表示するGUIText
 	public Text highScoreGUIText;
-	
-	//どうしてもうまくいかないので
-	//ScoreのGUIに便乗する形で
-	//Score.csに自機のライフを表示させる処理を書こうとしているところ
-	public GUIText playerHpGUIText;
 
 	//プレイヤー数
 	public Text playerHpText;
-	
-	Life playerlife;
-	
+
+	//========== メンバ変数 ==========
 	// スコア
-	private int score;
+	private int score, oldScore;
 	
 	// ハイスコア
 	private int highScore;
 
-	private int playerHp;
+	// 自機ライフオブジェクト
+	private Life playerlifeObj;
+
+	// 残機
+	private int playerLife, oldPlayerLife;
 	
-	// PlayerPrefsで保存するためのキー
+	// ハイスコアをPlayerPrefsで保存するためのキー
 	private string highScoreKey = "highScore";
 	
-	//倒した敵の数
+	// 倒した敵の数
 	private int deadEnemyNum = 0;
 
-	//倒したボスの数
+	// 倒したボスの数
 	private int deadBossNum = 0;
 
-	//倒した中ボスの数
+	// 倒した中ボスの数
 	private int deadMiddleBossNum = 0;
 
 	//GUI表示タイマー
-	float timer;
-	bool isShowGui = false;
-	float showTime = 1;
+	private float timer;
+
+	//GUI表示Flag
+	private bool isShowGui = false;
+
+	//GUI表示までの時間
+	private float showTime = 1;
+
 
 	void Start ()
 	{
@@ -51,74 +55,67 @@ public class Score : MonoBehaviour
 
 	void Update ()
 	{
-		// スコアがハイスコアより大きければ
+		playerLife = playerlifeObj.getPlayerHp();
+
+		// スコアがハイスコアより大きければ保存
 		if (highScore < score) {
 			highScore = score;
 		}
 
-		/*
-		 * 11/8
-		プレイヤーのライフの変数はstaticにしてある。
-		Lifeクラスと、Guiクラスで共通化させるため。
-		通常のメンバ変数だとライフが独立してしまい
-		全く連携されない
-		*/
-		//playerHp = playerlife.getPlayerHp();
-		playerHpGUIText.text = playerHp.ToString ();
-		//print ("UPDATE >>>>>> " + playerlife.getPlayerHp());
-		
-		playerHpGUIText.text = playerlife.getPlayerHp().ToString ();
-		scoreGUIText.text = score.ToString ();
-		highScoreGUIText.text = "HighScore : " + highScore.ToString ();
+		//スコアが変わっていたら新しいスコアを表示
+		if (score != oldScore) {
+			scoreGUIText.text = score.ToString ();
+			oldScore = score;
+		}
 
-		//TODO プレイヤーの残機
-		playerHpText.text = playerlife.getPlayerHp().ToString ();
+		//プレイヤーの残機数が変わっていたら、新しい残機を表示
+		if (playerLife != oldPlayerLife){
+			playerHpText.text = playerlifeObj.getPlayerHp().ToString ();
+			oldPlayerLife = playerLife;
+		}
 
-
-		//指定秒後にGUIを表示
+		//フラグが立っている場合、指定秒後にGUIを表示
 		if (isShowGui) {
 			timer += Time.deltaTime;
 			if(timer > showTime){
 				showScoreGui();
 			}
 		}
-
 	}
 	
 	// ゲーム開始前の状態に戻す
 	private void Initialize ()
 	{
-		//For test clear high score
-		//PlayerPrefs.SetInt (highScoreKey, 0);
+		//PlayerPrefs.SetInt (highScoreKey, 0); //テスト用に、ハイスコアを初期化
+
+		//ゲームスピードを初期化
 		Time.timeScale = 1;
 
-		highScoreGUIText = GameObject.Find ("HighScore").GetComponent<Text>();
+		//倒した敵の数を初期化
+		initDeadEnemyNum();
 
-		//倒した敵の数を0に戻す
-		deadEnemyNum = 0;
-		deadBossNum = 0;
-		deadMiddleBossNum = 0;
-
-		// ハイスコアを取得する。保存されてなければ0を取得する。
+		// ハイスコアを取得し表示する。保存されてなければ0を取得する。
 		highScore = PlayerPrefs.GetInt (highScoreKey, 0);
+		highScoreGUIText = GameObject.Find ("HighScore").GetComponent<Text>();
+		highScoreGUIText.text = "HighScore : " + highScore.ToString ();
 
+		//自機ライフオブジェクトを取得し、残機数を設定
+		playerlifeObj = GetComponent<Life> ();
+		playerLife = playerlifeObj.getPlayerHp();
+
+		//ステージクリア時の表示であるかどうかを判別
 		if (Manager.isNextStage != true) {
-			// スコアを0に戻す
+			// スコアと残機を初期化
 			score = 0;
-			//ライフを初期値に戻し
-			playerlife = GetComponent<Life> ();
-			playerlife.setPlayerHp (Manager.playerLifeDefault);
+			playerlifeObj.setPlayerHp (Manager.playerLifeDefault);
 		} else {
-			// スコア
+			// クリア時のスコアと残機を設定
 			score = Manager.lastScore;
-			Debug.Log ("last sore is " + score);
-			//ライフを初期値に戻し
-			playerlife = GetComponent<Life> ();
-			playerlife.setPlayerHp (GetComponent<Life> ().getPlayerHp());
+			playerlifeObj.setPlayerHp (playerLife);
+
+			//次ステージフラグを初期化
 			Manager.isNextStage = false;
 		}
-
-		
 	}
 	
 	// ポイントの追加
@@ -146,30 +143,40 @@ public class Score : MonoBehaviour
 
 	//クリアGUI表示
 	public void showScoreGui(){
-		Manager managerObj = FindObjectOfType<Manager> ();
 
 		//クリアGUIを表示
+		Manager managerObj = FindObjectOfType<Manager> ();
 		managerObj.showClearGui();
 
+		//クリア時のスコアを表示
 		Manager.lastScore = getScore();
 		
-		//値を表示
+		//倒した敵の数を表示
 		GameObject.Find ("totalScoreP").GetComponent<Text>().text = getScore().ToString();
 		GameObject.Find ("bossP").GetComponent<Text>().text = "× " + getDeadBossNum().ToString();
 		GameObject.Find ("enemySP").GetComponent<Text>().text = "× " + getDeadMiddleBossNum().ToString();
 		GameObject.Find ("enemyNP").GetComponent<Text>().text = "× " + getDeadEnemyNum().ToString();
-		
+
+		//最終ステージの場合はENDボタンを表示
 		string stageName = Application.loadedLevelName;
-		
-		if (stageName == managerObj.lastStageName) {
+		string lastStageName = Manager.stagePatarns[Manager.stagePatarns.Length - 2];
+		if (stageName == lastStageName) {
 			GameObject.Find ("nextBtnText").GetComponent<Text>().text = "End";
 		}
 
+		//次ステージへ遷移フラグを立てる
 		Manager.isNextStage = true;
 
 		//ゲームを停止
 		Time.timeScale = 0; //TODO Manager側で停止したい。
 		managerObj.isPause = true;
+	}
+
+	//倒した敵の数を初期化
+	public void initDeadEnemyNum(){
+		deadEnemyNum = 0;
+		deadBossNum = 0;
+		deadMiddleBossNum = 0;
 	}
 
 	/**
@@ -204,12 +211,5 @@ public class Score : MonoBehaviour
 	//倒した中ボスの数を取得
 	public int getDeadMiddleBossNum(){
 		return this.deadMiddleBossNum;
-	}
-
-	//倒した敵の数を0に戻す
-	public void initDeadEnemyNum(){
-		deadEnemyNum = 0;
-		deadBossNum = 0;
-		deadMiddleBossNum = 0;
 	}
 }

@@ -3,54 +3,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-//TODO item changer
+// ショット切り替えボタン制御クラス
 public class ShotTypeChanger : MonoBehaviour {
 
-
+	//========== 個別にインスペクターで設定する項目 ==========
 	//スプライト画像
-	public Sprite sp1;
-	public Sprite sp2;
-	public Sprite sp3;
-	public Sprite sp4;
+	public Sprite sp1, sp2, sp3, sp4;
 
-	//Imageオブジェクト
-	public GameObject shotChanger1;
-	public GameObject shotChanger2;
-	public GameObject shotChanger3;
-	public GameObject shotChanger4;
+	//Imageボタン
+	public GameObject shotChanger1, shotChanger2, shotChanger3, shotChanger4;
 
-	public GameObject shotImg1;
-	public GameObject shotImg2;
-	public GameObject shotImg3;
-	public GameObject shotImg4;
+	//弾の画像
+	public GameObject shotImg1, shotImg2, shotImg3, shotImg4;
 
 	//現在のショット番号
 	public int currentShotNum = 1;
-	
-	Button btn1;
-	Button btn2;
-	Button btn3;
-	Button btn4;
 
-	ColorBlock cb1;
-	ColorBlock cb2;
-	ColorBlock cb3;
-	ColorBlock cb4;
+	//========== 使用する各種コンポーネント ==========
+	ShotType shotTypeObj;
+
+	//========== メンバ変数 ==========
+	Button btn1, btn2, btn3, btn4;
+
+	ColorBlock cb1, cb2, cb3, cb4;
 
 	bool is1done = false;
 	bool is2done = false;
 	bool is3done = false;
 	bool is4done = false;
 
-	public ShotType shotType;
-
-	public Dictionary<string, int> dicta = new Dictionary<string, int>();
+	//弾の種類リスト
+	Dictionary<string, int> shotList = new Dictionary<string, int>();
 
 	void Start(){
 
-		shotType = GetComponent<ShotType> ();
+		shotTypeObj = GetComponent<ShotType> ();
 
-		//各種ボタンを保持
+		//各種ボタンを設定
 		btn1 = shotChanger1.GetComponent<Button>();
 		btn2 = shotChanger2.GetComponent<Button>();
 		btn3 = shotChanger3.GetComponent<Button>();
@@ -62,14 +51,17 @@ public class ShotTypeChanger : MonoBehaviour {
 		shotChanger3.SetActive(false);
 		shotChanger4.SetActive(false);
 
-		dicta.Add("shot1",1);
+		//デフォルトの弾を設定
+		shotList.Add("shot1",1);
 
 	}
-
+	
+	/*
 	void Update(){
-
 	}
+	*/
 
+	//弾の切り替え処理
 	public void changeShot (int argShotType) {
 
 		//同じ武器をすでに取得してないかどうかを確認
@@ -104,10 +96,10 @@ public class ShotTypeChanger : MonoBehaviour {
 			}
 			break;
 		default:
-				break;
+			break;
 		}
 
-		//同じ武器をすでに取得してない場合のみ表示
+		//同じ武器をすでに取得してない場合のみ弾ボタンと弾画像を表示
 		if (isOnlyOne) {
 			Image targetImg;
 
@@ -120,7 +112,7 @@ public class ShotTypeChanger : MonoBehaviour {
 					targetImg = GameObject.Find ("shotImage2").GetComponent<Image> ();
 					changeImg (argShotType, targetImg);
 
-					dicta.Add("shot" + argShotType.ToString(),currentShotNum + 1);//TODO
+					shotList.Add("shot" + argShotType.ToString(),currentShotNum + 1);//TODO
 					break;
 				case 2:
 					shotChanger3.SetActive (true);
@@ -128,7 +120,7 @@ public class ShotTypeChanger : MonoBehaviour {
 					targetImg = GameObject.Find ("shotImage3").GetComponent<Image> ();
 					changeImg (argShotType, targetImg);
 					
-					dicta.Add("shot" + argShotType.ToString(),currentShotNum + 1);//TODO
+					shotList.Add("shot" + argShotType.ToString(),currentShotNum + 1);//TODO
 					break;
 				case 3:
 					shotChanger4.SetActive (true);
@@ -136,7 +128,7 @@ public class ShotTypeChanger : MonoBehaviour {
 					targetImg = GameObject.Find ("shotImage4").GetComponent<Image> ();
 					changeImg (argShotType, targetImg);
 					
-					dicta.Add("shot" + argShotType.ToString(),currentShotNum + 1);//TODO
+					shotList.Add("shot" + argShotType.ToString(),currentShotNum + 1);//TODO
 					break;
 				default:
 					break;
@@ -235,28 +227,32 @@ public class ShotTypeChanger : MonoBehaviour {
 
 	//ショット切り替えボタン押下時の処理
 	public void shotChangerOnClick(int argBtnNum){
+
+		// ボタンの色を変更
 		changeColor (argBtnNum);
-		List<KeyValuePair<string, int>> sPair = new List<KeyValuePair<string, int>>(dicta);
+
+		// 押されたボタンの弾に切り替える
+		List<KeyValuePair<string, int>> sPair = new List<KeyValuePair<string, int>>(shotList);
 		foreach (var item in sPair)
 		{
 			if(item.Value == argBtnNum){
-				Debug.Log (item.Key + "pressed...");
 				if(item.Key == "shot1"){
-					shotType.setShotType_1();
-					shotType.setPlayerShotDelay_1();
+					shotTypeObj.setShotType(1);
+					shotTypeObj.setPlayerShotDelay(1);
 				}else if(item.Key == "shot2"){
-					shotType.setShotType_2();
-					shotType.setPlayerShotDelay_2();
+					shotTypeObj.setShotType(2);
+					shotTypeObj.setPlayerShotDelay(2);
 				}else if(item.Key == "shot3"){
-					shotType.setShotType_3();
-					shotType.setPlayerShotDelay_3();
+					shotTypeObj.setShotType(3);
+					shotTypeObj.setPlayerShotDelay(3);
 				}else if(item.Key == "shot4"){
-					shotType.setShotType_4();
-					shotType.setPlayerShotDelay_4();
+					shotTypeObj.setShotType(4);
+					shotTypeObj.setPlayerShotDelay(4);
+				}else{
+					shotTypeObj.setShotType(1);
+					shotTypeObj.setPlayerShotDelay(1);
 				}
 			}
 		}
-
-
 	}
 }

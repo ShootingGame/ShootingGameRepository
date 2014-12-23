@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class BombManager : MonoBehaviour {
 
+	//========== 個別にインスペクターで設定する項目 ==========
 	//ボム数 表示テキスト
 	public Text bombNumText;
 
@@ -15,10 +16,13 @@ public class BombManager : MonoBehaviour {
 	//ボムの初期値
 	static int defaultBombNum = 1;
 
+	//========== 使用する各種コンポーネント ==========
 	Manager managerObj;
 
+	//========== メンバ変数 ==========
 	//ボムの数
 	int bombNum;
+
 
 	void Start () {
 		bombNum = defaultBombNum;
@@ -61,17 +65,17 @@ public class BombManager : MonoBehaviour {
 		bombBtn.colors = cb1;
 	}
 
-	//ボムの減算
+	//ボムの減算処理
 	public void subtractBombNum(){
 		bombNum --;
 	}
 
-	//ボムの加算
+	//ボムの加算処理
 	public void increaseBombNum(){
 		bombNum ++;
 	}
 
-	//ボム数を取得
+	//ボム数を取得処理
 	public int getBombNum(){
 		return bombNum;
 	}

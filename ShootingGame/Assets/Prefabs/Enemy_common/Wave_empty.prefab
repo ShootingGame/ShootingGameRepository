@@ -57,7 +57,6 @@ GameObject:
   - 95: {fileID: 9500000}
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400002}
-  - 114: {fileID: 11400004}
   - 60: {fileID: 6000000}
   - 114: {fileID: 11400048}
   - 114: {fileID: 11400006}
@@ -238,21 +237,6 @@ MonoBehaviour:
   enemyBullet: {fileID: 100000, guid: 064a779a2f15fea4f9efa0c60250c535, type: 2}
   canShot: 1
   explosion: {fileID: 100000, guid: 45c0eeb7d83ec7c4cae0f7d3be325302, type: 2}
---- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f78a23fadfd4d64ca1921e832f208aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 3
-  shotFlag: 1
-  isLastBoss: 0
-  isSpecialEnemy: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

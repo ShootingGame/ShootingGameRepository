@@ -26,7 +26,8 @@ public class MissileBomb : MonoBehaviour
 	// 爆発の作成
 	public void ExplosionType1()
 	{
-		Instantiate (explosion1, transform.position, transform.rotation);
+		//Instantiate (explosion1, transform.position, transform.rotation);
+		ObjectPool.instance.GetGameObject (explosion1, transform.position, transform.rotation);
 	}
 	
 	// アニメーターコンポーネントの取得

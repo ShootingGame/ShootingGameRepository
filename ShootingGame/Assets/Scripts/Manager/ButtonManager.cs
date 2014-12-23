@@ -2,21 +2,16 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class button : MonoBehaviour {
+public class ButtonManager : MonoBehaviour {
 
-
+	//========== 使用する各種コンポーネント ==========
 	Emitter emitter;
-	//public Manager managerObj;
 	Manager managerObj;
+
 
 	// Use this for initialization
 	void Start () {
 		managerObj = FindObjectOfType<Manager> ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
 	}
 
 	//continue yes btn

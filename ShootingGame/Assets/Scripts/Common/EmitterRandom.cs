@@ -13,7 +13,7 @@ public class EmitterRandom : MonoBehaviour {
 	public float enemy_interval;
 
 	//Animation再生回数
-	private int animation_num = 0;
+	//private int animation_num = 0;
 
 	//enemy_copyの速度
 	public float enemy_speed;

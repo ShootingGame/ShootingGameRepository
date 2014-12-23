@@ -13,13 +13,15 @@ public class Player : MonoBehaviour
 	FollowerManager followerMng;
 	Life playerlife;
 	Manager managerObj;
-	ShotType shotType;
+	ShotType shotTypeObj;
 	Spaceship spaceship;
 	SuperShot superShot;
 	AudioManager audioObj;
+	ShotTypeChanger shotChangerObj;
 
 	//========== メンバ変数 ==========
 	//None
+
 
 	IEnumerator Start ()
 	{
@@ -28,19 +30,21 @@ public class Player : MonoBehaviour
 		followerMng = FindObjectOfType<FollowerManager> ();
 		playerlife = GetComponent<Life> ();
 		managerObj = FindObjectOfType<Manager> ();
-		shotType = GetComponent<ShotType> ();
+		shotTypeObj = GetComponent<ShotType> ();
 		spaceship = GetComponent<Spaceship> ();
 		superShot = GetComponent<SuperShot> ();
 		audioObj = FindObjectOfType<AudioManager> ();
+		shotChangerObj = FindObjectOfType<ShotTypeChanger> ();
+
 
 		//初期の弾の種類を設定
-		shotType.setDefaultShot ();
+		shotTypeObj.setDefaultShot ();
 
+		// 弾をプレイヤーと同じ位置/角度で作成
 		while(true){
-			int selectedShotType = shotType.getShotType();
+			int selectedShotType = shotTypeObj.getShotType();
 			Attack(selectedShotType);
-			// 弾をプレイヤーと同じ位置/角度で作成
-			yield return new WaitForSeconds (shotType.getPlayerShotDelay());	
+			yield return new WaitForSeconds (shotTypeObj.getPlayerShotDelay());	
 		}
 
 	}
@@ -64,9 +68,10 @@ public class Player : MonoBehaviour
 
 	void Attack (int argShotType)
 	{
-		if (managerObj.IsGamePause () != true) {
-			// スペースを押したかを判定
 
+		if (managerObj.IsGamePause () != true) {
+
+			//画面にタッチされた場合に弾を発射
 			if(managerObj.isTouch){
 			//if (Input.GetKey ("space")) {
 
@@ -74,23 +79,25 @@ public class Player : MonoBehaviour
 				{
 				case 1:
 					spaceship.Shot (transform);
+					audioObj.playShotSound (1);
 					break;
 				case 2:
 					spaceship.Shot2 (transform);
+					audioObj.playShotSound (2);
 					break;
 				case 3:
 					spaceship.Shot3 (transform);
+					audioObj.playShotSound (3);
 					break;
 				case 4:
 					spaceship.Shot4 (transform);
+					audioObj.playShotSound (4);
 					break;
 				default:
 					spaceship.Shot (transform);
+					audioObj.playShotSound (1);
 					break;
 				}
-
-				// TODO ショット音を鳴らす || ショットによって振り分けたい
-				audioObj.playShotSound (1);
 			}
 		}
 	}
@@ -121,26 +128,25 @@ public class Player : MonoBehaviour
 	// 敵ならばダメージ アイテムならば取得処理を記載
 	void OnTriggerEnter2D (Collider2D c)
 	{
+
 		if (managerObj != null && managerObj.IsGamePause () != true) {
 			// レイヤー名を取得
-			// 以下、コライダのレイヤー名で判定する
 			string layerName = LayerMask.LayerToName(c.gameObject.layer);
 			
 			// レイヤー名がBullet(Enemy)の時は弾を削除
 			if( layerName == "Bullet(Enemy)")
 			{
-				// 弾の削除
-				Destroy(c.gameObject);
+				// エネミーの弾の削除。実際には非アクティブにする
+				//Destroy(c.gameObject);
+				ObjectPool.instance.shootingGamePool(c.gameObject);
 			}
 			
 			// レイヤー名がBullet(Enemy)またはEnemy,Boss1の場合は damage
 			if( layerName == "Bullet(Enemy)" || layerName == "Enemy" || layerName == "Boss1")
 			{
-
 				spaceship.GetAnimator().SetTrigger("Damage");
 
 				playerlife.damagePlayerHp();
-				Debug.Log ("Damage(Player.cs) == >" + playerlife.getPlayerHp());
 				
 				spaceship.Explosion();
 				
@@ -164,50 +170,42 @@ public class Player : MonoBehaviour
 				}
 			}
 			
-			//TODO アイテム獲得時の分岐
-			if(layerName == "ItemN"){
-				Debug.Log ("ItemN GET");
-				shotType.setShotType_1();
-				shotType.setPlayerShotDelay_1();
+			// ショット切り替えアイテムの取得時の処理
+			int nextShotType = 0;
+			if (layerName == "ItemN"){
+				nextShotType = 1;
+			} else if (layerName == "ItemE"){
+				nextShotType = 2;
+			} else if (layerName == "ItemL"){
+				nextShotType = 3;
+			} else if (layerName == "ItemM"){
+				nextShotType = 4;
+			}
+			if (nextShotType != 0){
+				shotTypeObj.setShotType(nextShotType);
+				shotTypeObj.setPlayerShotDelay(nextShotType);
+				shotChangerObj.changeShot(nextShotType);
 				Destroy(c.gameObject);
+			}
 
-				FindObjectOfType<ShotTypeChanger> ().changeShot(1);
-
-			}else if(layerName == "ItemE"){
-				Debug.Log ("ItemE GET");
-				shotType.setShotType_2();
-				shotType.setPlayerShotDelay_2();
-				Destroy(c.gameObject);
-
-				FindObjectOfType<ShotTypeChanger> ().changeShot(2);
-				
-			}else if(layerName == "ItemL"){
-				Debug.Log ("ItemL GET");
-				shotType.setShotType_3();
-				shotType.setPlayerShotDelay_3();
-				Destroy(c.gameObject);
-
-				FindObjectOfType<ShotTypeChanger> ().changeShot(3);
-			}else if(layerName == "ItemM"){
-				Debug.Log ("ItemM GET");
-				shotType.setShotType_4();
-				shotType.setPlayerShotDelay_4();
-				Destroy(c.gameObject);
-
-				FindObjectOfType<ShotTypeChanger> ().changeShot(4);
-			}else if(layerName == "ItemOpt"){
-				//TODO オプションを生成処理
-				if(followerMng.IsFollowerMax() == false){
+			// オプション取得時の処理
+			if (layerName == "ItemOpt"){
+				if (followerMng.IsFollowerMax() == false){
 					FindObjectOfType<BombManager>().increaseBombNum(); //ボムの数を加算
 					GameObject prefab = (GameObject)Resources.Load ("followers");
 					Instantiate (prefab, transform.position, Quaternion.identity);
 				}
 				Destroy(c.gameObject);
-			}else if (layerName == "ItemBarrier") {
+			}
+
+			// バリア取得時の処理
+			if (layerName == "ItemBarrier") {
 				GameObject.Find("ItemBarrier").renderer.enabled = true;
 				Destroy (c.gameObject);
-				
-			}else if (layerName == "ItemSuperShot") {
+			}
+
+			// スペシャル弾の取得時の処理
+			if (layerName == "ItemSuperShot") {
 				GameObject.Find("ItemSuperShot").renderer.enabled = true;
 				superShot.superShotFlg = 1;
 				Destroy (c.gameObject);

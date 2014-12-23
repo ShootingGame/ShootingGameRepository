@@ -526,6 +526,10 @@ MonoBehaviour:
   shotFlag: 1
   isLastBoss: 1
   isSpecialEnemy: 0
+  Item: {fileID: 0}
+  pauseX: 0
+  pauseY: 0
+  pauseZ: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

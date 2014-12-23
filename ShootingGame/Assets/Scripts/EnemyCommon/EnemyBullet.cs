@@ -40,7 +40,9 @@ public class EnemyBullet : MonoBehaviour
 
 		//DestroyArea 外の場合は削除
 		if (isEnterDestroyArea == false) {
-			Destroy (gameObject);
+
+			//Destroy (gameObject);
+			ObjectPool.instance.shootingGamePool(gameObject);
 		}
 
 		//lifeTimeが経過したら削除
@@ -48,7 +50,8 @@ public class EnemyBullet : MonoBehaviour
 			timer += Time.deltaTime;
 		}
 		if(timer > lifeTime){
-			Destroy (gameObject);
+			//Destroy (gameObject);
+			ObjectPool.instance.shootingGamePool(gameObject);
 		}
 
 		//エネミーの停止
@@ -69,8 +72,23 @@ public class EnemyBullet : MonoBehaviour
 		}
 		//TODO ================
 	}
+
+	// コルーチン
+	IEnumerator coroutine;
+	void Awake() {
+		coroutine = StartA();
+	}
+	// コルーチン一時停止
+	void OnDisable() {
+		StopCoroutine(coroutine);
+	}
+	// コルーチン再開 弾が表示された時に呼び出される
+	void OnEnable() {
+		timer = 0f;
+		StartCoroutine(coroutine);
+	}
 	
-	IEnumerator Start ()
+	IEnumerator StartA ()
 	{
 		managerObj = FindObjectOfType<Manager> ();
 

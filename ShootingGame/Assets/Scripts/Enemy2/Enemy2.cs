@@ -210,7 +210,9 @@ public class Enemy2 : Enemy
 	GameObject inst(GameObject g){
 
 		Debug.Log ("inst!!!! arr =" + arr);
-		g = (GameObject)Instantiate (BossPatern[arr], transform.position, Quaternion.identity);
+		//g = (GameObject)Instantiate (BossPatern[arr], transform.position, Quaternion.identity);
+		g = ObjectPool.instance.GetGameObject (BossPatern[arr], transform.position, Quaternion.identity);
+
 		g.transform.parent = transform;
 		return g;
 

@@ -3,31 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Followers : MonoBehaviour {
-	
-	// player Objects
+
+	//========== 個別にインスペクターで設定する項目 ==========
 	public GameObject player;
-	
 
 	//Follower settings
 	public FollowerManager flwMngObj;
 	public GameObject follower;
-	private List<GameObject> _followers = new List<GameObject>(); // list of instance
 	public int followersNum;
 	public float controlGainP = 1f;
 	public float controlGainD = 1f;
-	private float followerVel = 5f;
 	public float followerDistance = 1f;
 	
 	//TODO　オプションからの弾の生成
-	public GameObject bullet;
-	public GameObject bullet2;
-	public GameObject bullet3;
-	public GameObject bullet4;
+	public GameObject bullet, bullet2, bullet3, bullet4;
 
-	//Manager object
+	//========== 使用する各種コンポーネント ==========
 	Manager managerObj;
-	
 	ShotType shotType;
+
+	//========== メンバ変数 ==========
+	private List<GameObject> _followers = new List<GameObject>(); // list of instance
+	private float followerVel = 5f;
+
+
 	// Use this for initialization
 	void Start () {
 
@@ -42,12 +41,8 @@ public class Followers : MonoBehaviour {
 		}
 
 		//TODO プレーヤーを取得
-		if (Manager.p1 == true) {
-			player = GameObject.Find ("Player(Clone)");
-		} else if (Manager.p2 == true) {
-			player = GameObject.Find ("Player2(Clone)");
-		} else if (Manager.p3 == true) {
-			player = GameObject.Find ("Player3(Clone)");
+		if (managerObj.selectedPlayer != null) {
+			player = GameObject.Find (managerObj.selectedPlayer.name + "(Clone)");		
 		} else {
 			player = GameObject.Find ("Player(Clone)");
 		}
@@ -79,17 +74,24 @@ public class Followers : MonoBehaviour {
 					if (managerObj.IsGamePause () != true) {
 						if (managerObj.isTouch) {
 							if (_followers[i] != null && player != null) {
-								//Debug.Log("This is shoot from options");
-								if(shotType.getShotType() == 1){
-									Instantiate (bullet, _followers[i].transform.position, _followers[i].transform.rotation);
-								}else if(shotType.getShotType() == 2){
-									Instantiate (bullet2, _followers[i].transform.position, _followers[i].transform.rotation);
-								}else if(shotType.getShotType() == 3){
-									Instantiate (bullet3, _followers[i].transform.position, _followers[i].transform.rotation);
-								}else if(shotType.getShotType() == 4){
-									Instantiate (bullet4, _followers[i].transform.position, _followers[i].transform.rotation);
+								switch (shotType.getShotType())
+								{
+								case 1:
+									ObjectPool.instance.GetGameObject (bullet, _followers[i].transform.position, _followers[i].transform.rotation);
+									break;
+								case 2:
+									ObjectPool.instance.GetGameObject (bullet2, _followers[i].transform.position, _followers[i].transform.rotation);
+									break;
+								case 3:
+									ObjectPool.instance.GetGameObject (bullet3, _followers[i].transform.position, _followers[i].transform.rotation);
+									break;
+								case 4:
+									ObjectPool.instance.GetGameObject (bullet4, _followers[i].transform.position, _followers[i].transform.rotation);
+									break;
+								default:
+									ObjectPool.instance.GetGameObject (bullet, _followers[i].transform.position, _followers[i].transform.rotation);
+									break;
 								}
-
 							}
 						}
 					}

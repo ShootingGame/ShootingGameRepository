@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08bca0593b1d74de9acd07d07a52767c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 400
   shotFlag: 1
   isLastBoss: 1
   isSpecialEnemy: 0

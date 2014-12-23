@@ -167,7 +167,6 @@ GameObject:
   - 60: {fileID: 6000010}
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400022}
-  - 114: {fileID: 11400032}
   - 114: {fileID: 11400060}
   - 114: {fileID: 11400046}
   m_Layer: 9
@@ -1091,21 +1090,6 @@ MonoBehaviour:
   enemyBullet: {fileID: 100000, guid: 064a779a2f15fea4f9efa0c60250c535, type: 2}
   canShot: 1
   explosion: {fileID: 100000, guid: 45c0eeb7d83ec7c4cae0f7d3be325302, type: 2}
---- !u!114 &11400032
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e051d771500a47b0b51f6b2ababed04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 1
-  shotFlag: 1
-  isLastBoss: 0
-  isSpecialEnemy: 0
 --- !u!114 &11400034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1121,6 +1105,10 @@ MonoBehaviour:
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
+  Item: {fileID: 0}
+  pauseX: 0
+  pauseY: 0
+  pauseZ: 0
 --- !u!114 &11400040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1181,6 +1169,10 @@ MonoBehaviour:
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
+  Item: {fileID: 0}
+  pauseX: 0
+  pauseY: 0
+  pauseZ: 0
 --- !u!114 &11400054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1217,6 +1209,10 @@ MonoBehaviour:
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
+  Item: {fileID: 0}
+  pauseX: 0
+  pauseY: 0
+  pauseZ: 0
 --- !u!114 &11400058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1232,6 +1228,10 @@ MonoBehaviour:
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
+  Item: {fileID: 0}
+  pauseX: 0
+  pauseY: 0
+  pauseZ: 0
 --- !u!114 &11400060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1247,6 +1247,10 @@ MonoBehaviour:
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
+  Item: {fileID: 0}
+  pauseX: 0
+  pauseY: 0
+  pauseZ: 0
 --- !u!114 &11400072
 MonoBehaviour:
   m_ObjectHideFlags: 1

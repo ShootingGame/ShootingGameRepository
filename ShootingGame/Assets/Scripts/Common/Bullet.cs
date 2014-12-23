@@ -7,6 +7,7 @@
 
 public class Bullet : MonoBehaviour
 {
+	//========== 個別にインスペクターで設定する項目 ==========
 	// 弾の移動スピード
 	public int speed = 10;
 
@@ -16,70 +17,64 @@ public class Bullet : MonoBehaviour
 	// 攻撃力
 	public int power = 1;
 
+	//========== 使用する各種コンポーネント ==========
 	ShotType shotType;
+	MissileBomb missileBomb;  //ミサイル爆風発生用コンポネント
+	Manager managerObj;  //ミサイル爆風発生用コンポネント
 
-	//ミサイル爆風発生用コンポネント
-	MissileBomb missileBomb;
-
+	//========== メンバ変数 ==========
 	//敵を探して追尾させる処理の準備
 	private GameObject enemy_obj;
 
-	void Start ()
+	// 弾が表示された時に呼び出される
+	void OnEnable ()
 	{
-		/*
-		static変数、shotTypeの値によって弾道を変更する
-		*/
+
 		shotType = GetComponent<ShotType> ();
-		/*
-		爆風発生用コンポネント
-		 */
-		missileBomb = GetComponent<MissileBomb> ();
+		missileBomb = GetComponent<MissileBomb> (); //爆風発生用コンポネント
+		managerObj = FindObjectOfType<Manager> ();
 
 		if(shotType != null){
 
-			//ここでは弾丸の軌道を管理する
-			//基本は前方へ射出する
-			if(shotType.getShotType () == 1){
+			//shotTypeの値によって弾道を変更する ここでは弾丸の軌道を管理する 基本は前方へ射出する
+			int selectedShotType = shotType.getShotType ();
+			switch (selectedShotType)
+			{
+			case 1:
+			case 2:
+			case 3:
 				rigidbody2D.velocity = transform.up.normalized * speed;
-				Destroy (gameObject, lifeTime);
-			}else if(shotType.getShotType () == 2){
-				rigidbody2D.velocity = transform.up.normalized * speed;
-				Destroy (gameObject, lifeTime);
-			}else if(shotType.getShotType () == 3){
-				rigidbody2D.velocity = transform.up.normalized * speed;
-				Destroy (gameObject, lifeTime);
-			}else if(shotType.getShotType () == 4){			
-
-				//serchTagメソッドで索敵する際の注意!!
-				//タグ名をつけないとミサイルが参照先を失ってその場に停滞してしまう
-
-					enemy_obj = serchTag(gameObject,"Enemy");
+				break;
+			case 4:
+				//ミサイルの処理
+				//serchTagメソッドで索敵する際の注意!! タグ名をつけないとミサイルが参照先を失ってその場に停滞してしまう
+				enemy_obj = serchTag(gameObject,"Enemy");
 				if(enemy_obj != null){
 					Missile_Homing (enemy_obj);
 					LookAt2D(enemy_obj);
-					Destroy (gameObject, lifeTime);
 				}else{
 					//敵が見つからない場合はまっすぐ飛ぶ
-					//print ("missile none target !!");
 					rigidbody2D.velocity = transform.up.normalized * speed;
-					Destroy (gameObject, lifeTime);
 				}
 				
 				//誘導がうまくできなければまっすぐ飛ぶ
 				rigidbody2D.velocity = transform.up.normalized * speed;
-				// lifeTime秒後に削除
-				Destroy (gameObject, lifeTime);
+				break;
+			default:
+				rigidbody2D.velocity = transform.up.normalized * speed;
+				break;
 			}
-			//ここまでミサイルの処理
+
 		}else{
-		//何かしらの問題でshotType取得に失敗した場合まっすぐ飛ぶ
-		//shotTypeに依存しない処理
-		//print ("Bullet.cs... shotType NONE!");
-		rigidbody2D.velocity = transform.up.normalized * speed;
-		// lifeTime秒後に削除
-		Destroy (gameObject, lifeTime);
+			//shotTypeに依存しない処理 何かしらの問題でshotType取得に失敗した場合まっすぐ飛ぶ
+			rigidbody2D.velocity = transform.up.normalized * speed;
 		}
 	}
+
+	/*
+	void Update () {
+	}
+	*/
 
 	/*
 	指定されたタグの中で最も近いものを取得
@@ -118,23 +113,17 @@ public class Bullet : MonoBehaviour
 	{
 		// 弾丸がヒットした相手のtag名を取得
 		string tagName = c.gameObject.tag;
-		//print ("Hit !!! TagName is ... " + tagName);
 
 		if(tagName == "Enemy"){
-			//print ("Hit !!! TagName is Enemy? ===> " + tagName);
-
 			//爆風発生
 			if(missileBomb != null){
 				//shotTypeによって呼び出す爆風を変化させる予定
-				//print ("EXPLODE!! Now Shot Type is ..." + shotType.getShotType ());
 				missileBomb.ExplosionType1();
 			}else{
 				//print ("Because....Null!!!!");
 			}
-
-		//tagが『Enemy』以外の時は何もしない
-		}if (tagName != "Enemy") {
-			//print ("None Other tag name !!");
+		}else{
+			//tagが『Enemy』以外の時は何もしない
 			return;
 		}
 	}

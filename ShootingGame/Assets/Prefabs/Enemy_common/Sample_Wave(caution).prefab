@@ -17,7 +17,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 11
   m_Name: caution2
-  m_TagString: Untagged
+  m_TagString: Caution
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,6 +151,10 @@ MonoBehaviour:
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
+  Item: {fileID: 0}
+  pauseX: 0
+  pauseY: 0
+  pauseZ: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

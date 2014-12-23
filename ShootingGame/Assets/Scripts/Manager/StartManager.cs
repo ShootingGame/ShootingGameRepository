@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class StartManager : MonoBehaviour {
 
+	//========== 個別にインスペクターで設定する項目 ==========
 	public GameObject startGui;
 	public GameObject charaGui;
 	public GameObject menuGui;
-
 	public Text modeText;
 	public Text lifePoint;
 

@@ -20,27 +20,47 @@ public class EnemyBullet2 : MonoBehaviour
 	private GameObject player_obj;
 	
 	EnemyBullet2 enmblt;
+
+	Manager managerObj;
+
+	//タイマー
+	float timer;
 	
+	// 弾が表示された時に呼び出される
+	void OnEnable() {
+		timer = 0f;
+	}
+
 	void Update ()
 	{
 		
 		enmblt = GetComponent<EnemyBullet2>();
-		
+		managerObj = FindObjectOfType<Manager> ();
+
+		if (managerObj.selectedPlayer != null) {
+			player_obj = GameObject.Find (managerObj.selectedPlayer.name + "(Clone)");
+		} else {
+			player_obj = GameObject.Find ("Player(Clone)");
+		}
+
 		player_obj = GameObject.Find ("Player(Clone)");
 		
 		if (player_obj != null) {
 			player_obj = serchTag (gameObject,"Player");
 			Missile_Homing (player_obj);
 			LookAt2D (player_obj);
-			Destroy (gameObject, lifeTime);
+			//Destroy (gameObject, lifeTime);
 		}
 		
 		/*
 		//まっすぐ飛ぶ
 		rigidbody2D.velocity = transform.up.normalized * speed;
         */
-		// lifeTime秒後に削除
-		Destroy (gameObject, lifeTime);
+		//lifeTimeが経過したら削除
+		timer += Time.deltaTime;
+		if(timer > lifeTime){
+			ObjectPool.instance.shootingGamePool(gameObject);
+		}
 	}
 	
 	
@@ -67,7 +87,7 @@ public class EnemyBullet2 : MonoBehaviour
 	{
 		//target.transform...敵
 		//transform..........射出された弾丸
-		Debug.Log ("kansu_Homing");
+		//Debug.Log ("kansu_Homing");
 		rigidbody2D.velocity = (target.transform.position - transform.position).normalized * 2.0f;
 	}
 	

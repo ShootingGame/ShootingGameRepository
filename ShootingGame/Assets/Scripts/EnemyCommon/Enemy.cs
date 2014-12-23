@@ -139,7 +139,9 @@ public class Enemy : MonoBehaviour
 
 				//貫通弾の処理
 				if(shottype.getShotType() != 3){
-					Destroy(c.gameObject);
+					// 弾の削除。実際には非アクティブにする
+					//Destroy(c.gameObject);
+					ObjectPool.instance.shootingGamePool(playerBulletTransform.gameObject);
 				}
 			}else{
 				// Bomb ヒットポイントを減らす

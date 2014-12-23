@@ -145,7 +145,6 @@ GameObject:
   - 4: {fileID: 400018}
   - 212: {fileID: 21200000}
   - 95: {fileID: 9500000}
-  - 114: {fileID: 11400006}
   - 60: {fileID: 6000000}
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400004}
@@ -535,17 +534,6 @@ MonoBehaviour:
   enemyBullet: {fileID: 100000, guid: 064a779a2f15fea4f9efa0c60250c535, type: 2}
   canShot: 1
   explosion: {fileID: 100000, guid: 2a97087034c622d469649ab0c7e245c4, type: 2}
---- !u!114 &11400006
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39fb3776fd5fbd14eb48ce87119cfd5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -561,6 +549,10 @@ MonoBehaviour:
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 1
+  Item: {fileID: 0}
+  pauseX: 0
+  pauseY: 0
+  pauseZ: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
