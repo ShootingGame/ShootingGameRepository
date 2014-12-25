@@ -630,7 +630,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0519623756, y: 1.10444474, z: 0}
+  m_LocalPosition: {x: .0775596276, y: 3.62673211, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400038}
@@ -1036,7 +1036,7 @@ MonoBehaviour:
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
-  Item: {fileID: 100000, guid: 65af398071635f94ab6509eae0de38f9, type: 2}
+  Item: {fileID: 100000, guid: 01664881f0e0a73459bf5eb128f64978, type: 2}
   pauseX: 0
   pauseY: 0
   pauseZ: 0
@@ -1108,7 +1108,7 @@ MonoBehaviour:
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
-  Item: {fileID: 100000, guid: 65af398071635f94ab6509eae0de38f9, type: 2}
+  Item: {fileID: 100000, guid: 01664881f0e0a73459bf5eb128f64978, type: 2}
   pauseX: 0
   pauseY: 0
   pauseZ: 0
@@ -1459,7 +1459,7 @@ MonoBehaviour:
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
-  Item: {fileID: 100000, guid: 65af398071635f94ab6509eae0de38f9, type: 2}
+  Item: {fileID: 100000, guid: 0ac126ea567dec449bbe58103c3c1c2d, type: 2}
   pauseX: 0
   pauseY: 0
   pauseZ: 0

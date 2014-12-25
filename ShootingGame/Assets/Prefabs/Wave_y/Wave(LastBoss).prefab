@@ -93,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .00999999978, y: -.419999987, z: .200000003}
+  m_LocalPosition: {x: -.654258311, y: -.727585196, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400008}
@@ -142,7 +142,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0700000003, y: 1.75, z: -.200000003}
+  m_LocalPosition: {x: .0700000003, y: 1.75, z: .0900000036}
   m_LocalScale: {x: .349999994, y: .349999994, z: 1}
   m_Children:
   - {fileID: 400006}
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  shotDelay: 10
+  shotDelay: 7
   bullet: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
