@@ -9,11 +9,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  - 60: {fileID: 6000000}
-  - 50: {fileID: 5000000}
+  - 58: {fileID: 5800000}
   - 114: {fileID: 11400000}
+  - 50: {fileID: 5000000}
   m_Layer: 11
-  m_Name: BulletB_6
+  m_Name: EnemyBulletB_2(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.83984268, y: -.60066545, z: 0}
+  m_LocalPosition: {x: 1.90710449, y: -.727585316, z: 0}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -46,25 +46,17 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!60 &6000000
-PolygonCollider2D:
+--- !u!58 &5800000
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Poly:
-    m_Paths:
-    - - {x: -.0230910778, y: .144363701}
-      - {x: -.0509092808, y: .0682727695}
-      - {x: -.0430910587, y: -.120000005}
-      - {x: -.0500000007, y: -.159999996}
-      - {x: .00745463371, y: -.16386193}
-      - {x: .0709092617, y: -.108414315}
-      - {x: .0826363564, y: .0536572412}
-      - {x: .0470001698, y: .140690506}
+  m_IsTrigger: 1
+  m_Radius: .0900000036
+  m_Center: {x: 0, y: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,8 +91,8 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: e3cc22362d74ed14b82178659e88be4c, type: 3}
-  m_Color: {r: .384313732, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 21300002, guid: 79d175d3b94fb5d4e962ad8497e0b239, type: 3}
+  m_Color: {r: 1, g: .827450991, b: .43921569, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

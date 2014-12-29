@@ -790,7 +790,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0305353291, y: 3.36831236, z: 0}
+  m_LocalPosition: {x: -.398121893, y: -.434857845, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400050}
@@ -957,13 +957,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .5
-  shotDelay: .0900000036
+  shotDelay: .100000001
   bullet: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
   bullet4: {fileID: 0}
   super_bullet: {fileID: 0}
-  enemyBullet: {fileID: 100000, guid: 4e9e28984d25d0345a6218e9159ff884, type: 2}
+  enemyBullet: {fileID: 100000, guid: d61d3679a329a774c82413ece9a48cbd, type: 2}
   canShot: 1
   explosion: {fileID: 100000, guid: 45c0eeb7d83ec7c4cae0f7d3be325302, type: 2}
 --- !u!114 &11400002
@@ -1442,13 +1442,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .5
-  shotDelay: .0900000036
+  shotDelay: .100000001
   bullet: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
   bullet4: {fileID: 0}
   super_bullet: {fileID: 0}
-  enemyBullet: {fileID: 100000, guid: 4e9e28984d25d0345a6218e9159ff884, type: 2}
+  enemyBullet: {fileID: 100000, guid: d61d3679a329a774c82413ece9a48cbd, type: 2}
   canShot: 1
   explosion: {fileID: 100000, guid: 45c0eeb7d83ec7c4cae0f7d3be325302, type: 2}
 --- !u!212 &21200000
