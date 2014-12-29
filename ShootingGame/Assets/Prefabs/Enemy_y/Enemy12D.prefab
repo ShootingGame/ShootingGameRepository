@@ -355,7 +355,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.77252531, y: 1.36241913, z: -.100000001}
+  m_LocalPosition: {x: .0500000007, y: 1.88999999, z: -.100000001}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
   - {fileID: 400014}
@@ -623,8 +623,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6cfb2ee94b9c141a4c77778988c02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: .5
-  shotDelay: .0900000036
+  speed: 1
+  shotDelay: .119999997
   bullet: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
@@ -644,18 +644,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7c6d337b6631344b85755767737372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 50
-  point: 100
+  hp: 10000
   shotFlag: 1
+  isLastBoss: 0
+  isSpecialEnemy: 0
+  Item: {fileID: 0}
+  pauseX: 0
+  pauseY: 0
+  pauseZ: 0
   WaitShot: 0
   Reverse: 0
-  shotflame: 30
-  time: 30
+  shotflame: 100
+  time: 100
   moveL: 0
   moveR: 0
   shotChangeEnemy: 0
+  isMidleBoss: 0
   BossPatern: []
   setcount: 60
+  isEnemyPause2: 0
 --- !u!114 &11400026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -667,7 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187b1317e11fc354aa61534c31da70eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: .5
+  enemySpeed: 1
 --- !u!114 &11400028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -710,7 +717,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100024}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255

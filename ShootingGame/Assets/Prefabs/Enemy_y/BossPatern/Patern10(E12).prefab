@@ -210,7 +210,7 @@ GameObject:
   - 114: {fileID: 11400024}
   - 60: {fileID: 6000000}
   m_Layer: 9
-  m_Name: Patern7_12D(Random)
+  m_Name: Patern10(E12)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -367,7 +367,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .506223798, y: 1.07558167, z: -.100000001}
+  m_LocalPosition: {x: .0500000007, y: 1.88999999, z: -.100000001}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
   - {fileID: 400022}
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RoundR: 0
   off: 0
-  random: 1
+  random: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -483,9 +483,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a2f805cd7106b438fd4e487cc22dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoundR: 0
+  RoundR: 1
   off: 0
-  random: 1
+  random: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RoundR: 0
   off: 0
-  random: 1
+  random: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -511,9 +511,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a2f805cd7106b438fd4e487cc22dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoundR: 0
+  RoundR: 1
   off: 0
-  random: 1
+  random: 0
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -527,7 +527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RoundR: 0
   off: 0
-  random: 1
+  random: 0
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -539,9 +539,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a2f805cd7106b438fd4e487cc22dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoundR: 0
+  RoundR: 1
   off: 0
-  random: 1
+  random: 0
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -555,7 +555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RoundR: 0
   off: 0
-  random: 1
+  random: 0
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -567,9 +567,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a2f805cd7106b438fd4e487cc22dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoundR: 0
+  RoundR: 1
   off: 0
-  random: 1
+  random: 0
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -583,7 +583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RoundR: 0
   off: 0
-  random: 1
+  random: 0
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -595,9 +595,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a2f805cd7106b438fd4e487cc22dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoundR: 0
+  RoundR: 1
   off: 0
-  random: 1
+  random: 0
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -611,7 +611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RoundR: 0
   off: 0
-  random: 1
+  random: 0
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -623,9 +623,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a2f805cd7106b438fd4e487cc22dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoundR: 0
+  RoundR: 1
   off: 0
-  random: 1
+  random: 0
 --- !u!114 &11400024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -679,7 +679,7 @@ MonoBehaviour:
   pauseX: 0
   pauseY: 0
   pauseZ: 0
-  WaitShot: 1
+  WaitShot: 0
   Reverse: 0
   shotflame: 100
   time: 100
@@ -702,13 +702,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  shotDelay: .0500000007
+  shotDelay: .119999997
   bullet: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
   bullet4: {fileID: 0}
   super_bullet: {fileID: 0}
-  enemyBullet: {fileID: 100000, guid: da91fd9b233b28e4f8bbc3ae5f8e2af8, type: 2}
+  enemyBullet: {fileID: 100000, guid: 8e4e9e0fca5cf4449854bef70ac3e6fb, type: 2}
   canShot: 1
   explosion: {fileID: 100000, guid: 45c0eeb7d83ec7c4cae0f7d3be325302, type: 2}
 --- !u!212 &21200000
