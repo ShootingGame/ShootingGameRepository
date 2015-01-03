@@ -24,6 +24,44 @@ public class ObjectPool : MonoBehaviour
 		}
 	}
 
+	//TODO 一定時間ごとに、オブジェクトプールの使用しなくなった弾丸を破棄する
+	int cleanInterval = 3;
+	void OnEnable ()
+	{
+		StartCoroutine (RemoveObjectCheck ());
+	}
+	IEnumerator RemoveObjectCheck ()
+	{
+		while (true) {
+
+			foreach( KeyValuePair<int, List<GameObject>> pobj in pooledGameObjects )
+			{
+				bool isAllDisabled = true;
+				foreach (GameObject pooledObjList in pooledGameObjects[pobj.Key]) {
+					if(pooledObjList != null && pooledObjList.activeInHierarchy != false){
+						//アクティブな弾が一つもない弾種をチェック
+						isAllDisabled = false;
+					}
+					if(isAllDisabled != true){
+						break;
+					}
+				}
+				if(isAllDisabled != false){
+					//全て非アクティブの弾種を削除
+					foreach (GameObject pooledObjList in pooledGameObjects[pobj.Key]) {
+						Destroy(pooledObjList);
+					}
+					pooledGameObjects.Remove(pobj.Key);
+					//TODO 一気に壊すのは負担かもしれないので、1回ずつ、1種類ずつ削除
+					break;
+				}
+			}
+
+			//RemoveObject (prepareCount);
+			yield return new WaitForSeconds (cleanInterval);
+		}
+	}
+
 	// ゲームオブジェクトのDictionary
 	private Dictionary<int, List<GameObject>> pooledGameObjects = new Dictionary<int, List<GameObject>> ();
 
@@ -48,7 +86,7 @@ public class ObjectPool : MonoBehaviour
 			go = gameObjects [i];
 
 			// 現在非アクティブ（未使用）であれば
-			if (go.activeInHierarchy == false) {
+			if (go != null && go.activeInHierarchy == false) {
 
 				// 位置を設定する
 				go.transform.position = position;
