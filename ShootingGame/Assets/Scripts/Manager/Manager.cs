@@ -33,6 +33,10 @@ public class Manager : MonoBehaviour
 	[System.NonSerialized]
 	public bool isTouch = false;
 
+	//プレイヤーの弾を垂れ流しにするかどうか
+	[System.NonSerialized]
+	public bool isAlwaysShoot = true;
+
 	//ステージ遷移フラグ
 	[System.NonSerialized]
 	public static bool isNextStage;

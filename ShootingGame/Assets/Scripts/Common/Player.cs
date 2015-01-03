@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
 		if (managerObj.IsGamePause () != true) {
 
 			//画面にタッチされた場合に弾を発射
-			if(managerObj.isTouch){
+			if(managerObj.isTouch || managerObj.isAlwaysShoot != false){
 			//if (Input.GetKey ("space")) {
 
 				switch (argShotType)
