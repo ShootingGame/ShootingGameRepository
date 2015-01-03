@@ -72,7 +72,7 @@ public class Followers : MonoBehaviour {
 			for(int i=0; i<followersNum; i++) {
 				if (_followers[i] != null && player != null) {
 					if (managerObj.IsGamePause () != true) {
-						if (managerObj.isTouch) {
+						if (managerObj.isTouch || managerObj.isAlwaysShoot != false) {
 							if (_followers[i] != null && player != null) {
 								switch (shotType.getShotType())
 								{
