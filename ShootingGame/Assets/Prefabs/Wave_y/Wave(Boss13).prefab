@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7c6d337b6631344b85755767737372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 6000
+  hp: 7000
   shotFlag: 1
   isLastBoss: 1
   isSpecialEnemy: 0
@@ -320,7 +320,12 @@ MonoBehaviour:
   moveR: 0
   shotChangeEnemy: 1
   isMidleBoss: 0
-  BossPatern: []
+  BossPatern:
+  - {fileID: 100024, guid: 7302e560ffd80db4caabf6d988810a81, type: 2}
+  - {fileID: 100024, guid: e565288d8c5cd144cb7673f741fda7fd, type: 2}
+  - {fileID: 100016, guid: d61a560f8d36c314980d3a95a3b6f1aa, type: 2}
+  - {fileID: 100024, guid: b70015069f8beaf41a93438edc112325, type: 2}
+  - {fileID: 100024, guid: 2d5d338f16ba40448aff76d02ed06e8c, type: 2}
   setcount: 210
   isEnemyPause2: 0
 --- !u!212 &21200000

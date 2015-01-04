@@ -155,7 +155,7 @@ public class Enemy2 : Enemy
 
 	//弾幕バリエーションをチェンジ
 	public void danmakuChange(int hp){
-		if(hp <= 5000){
+		if(hp <= 6400){
 			
 			if(isDanAFinish == false){
 				nextDestroy = inst (BossPatern[arr]);
@@ -165,7 +165,7 @@ public class Enemy2 : Enemy
 			}
 		}
 		
-		if(hp <= 4000){
+		if(hp <= 5200){
 			if(isDanBFinish == false){
 				Destroy(nextDestroy);
 				nextDestroy = inst (BossPatern[arr]);
@@ -175,7 +175,7 @@ public class Enemy2 : Enemy
 			}
 		}
 		
-		if(hp <= 3000){
+		if(hp <= 4000){
 			if(isDanCFinish == false){
 				Destroy(nextDestroy);
 				nextDestroy = inst (BossPatern[arr]);
@@ -184,7 +184,7 @@ public class Enemy2 : Enemy
 				Debug.Log("arr =" + arr +"  hp" + hp );
 			}
 		}
-		if(hp <= 2000){
+		if(hp <= 2800){
 			if(isDanDFinish == false){
 				Destroy(nextDestroy);
 				nextDestroy = inst (BossPatern[arr]);
@@ -193,7 +193,7 @@ public class Enemy2 : Enemy
 				Debug.Log("arr =" + arr +"  hp" + hp );
 			}
 		}
-		if(hp <= 1000){
+		if(hp <= 1300){
 			if(isDanEFinish == false){
 				Destroy(nextDestroy);
 				nextDestroy = inst (BossPatern[arr]);

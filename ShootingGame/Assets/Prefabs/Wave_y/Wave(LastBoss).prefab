@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  shotDelay: 7
+  shotDelay: 6
   bullet: {fileID: 0}
   bullet2: {fileID: 0}
   bullet3: {fileID: 0}
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7c6d337b6631344b85755767737372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 6000
+  hp: 7500
   shotFlag: 1
   isLastBoss: 1
   isSpecialEnemy: 0
@@ -422,9 +422,9 @@ MonoBehaviour:
   shotChangeEnemy: 1
   isMidleBoss: 0
   BossPatern:
-  - {fileID: 100024, guid: 7302e560ffd80db4caabf6d988810a81, type: 2}
+  - {fileID: 100024, guid: 57e3fa673130db64c837b17731fc7a5d, type: 2}
   - {fileID: 100024, guid: e565288d8c5cd144cb7673f741fda7fd, type: 2}
-  - {fileID: 100016, guid: d61a560f8d36c314980d3a95a3b6f1aa, type: 2}
+  - {fileID: 100024, guid: add8e5100fea7044da237405c0ac10b1, type: 2}
   - {fileID: 100024, guid: b70015069f8beaf41a93438edc112325, type: 2}
   - {fileID: 100018, guid: c05b849536fc2fb4b86b9348023cfee7, type: 2}
   setcount: 210

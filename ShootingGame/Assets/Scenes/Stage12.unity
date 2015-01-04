@@ -1484,7 +1484,7 @@ Transform:
   - {fileID: 47288227}
   - {fileID: 1311244601}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &686073234
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,7 +2032,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!1 &958185243
 GameObject:
   m_ObjectHideFlags: 0
@@ -2796,7 +2796,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: 3024e0fea024fbd40a4ce923caef73a6, type: 2}
   - {fileID: 100026, guid: 1f103c8d8a67b0c40a20d8d34bf598e0, type: 2}
   - {fileID: 100000, guid: 1cd81b6a3a5700445b50ab99472c9880, type: 2}
-  - {fileID: 100000, guid: 8803ae9623f20ab45ad6c514c206e67f, type: 2}
+  - {fileID: 100000, guid: 09a160a94896c1a4ab2b0d1121c18afa, type: 2}
   - {fileID: 100040, guid: a376d4baf920c45449660a75155ec20e, type: 2}
   currentWave: 0
 --- !u!4 &1262838946
@@ -2810,7 +2810,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &1293214019
 GameObject:
   m_ObjectHideFlags: 0
