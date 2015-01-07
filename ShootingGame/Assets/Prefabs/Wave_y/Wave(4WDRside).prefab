@@ -1414,7 +1414,7 @@ MonoBehaviour:
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
-  Item: {fileID: 100000, guid: 0ac126ea567dec449bbe58103c3c1c2d, type: 2}
+  Item: {fileID: 100000, guid: 65af398071635f94ab6509eae0de38f9, type: 2}
   pauseX: 0
   pauseY: 0
   pauseZ: 0

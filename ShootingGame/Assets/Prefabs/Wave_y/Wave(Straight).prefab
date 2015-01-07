@@ -614,7 +614,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.946986079, y: 2.16309595, z: 0}
+  m_LocalPosition: {x: -.307112038, y: .472229004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400036}
@@ -1480,7 +1480,7 @@ MonoBehaviour:
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
-  Item: {fileID: 0}
+  Item: {fileID: 100000, guid: c803c328b650b9149bc7001cf21f08cd, type: 2}
   pauseX: 0
   pauseY: 0
   pauseZ: 0
@@ -1876,7 +1876,7 @@ MonoBehaviour:
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
-  Item: {fileID: 0}
+  Item: {fileID: 100000, guid: 0ac126ea567dec449bbe58103c3c1c2d, type: 2}
   pauseX: 0
   pauseY: 0
   pauseZ: 0
@@ -1948,7 +1948,7 @@ MonoBehaviour:
   shotFlag: 1
   isLastBoss: 0
   isSpecialEnemy: 0
-  Item: {fileID: 0}
+  Item: {fileID: 100000, guid: c803c328b650b9149bc7001cf21f08cd, type: 2}
   pauseX: 0
   pauseY: 0
   pauseZ: 0
